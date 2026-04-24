@@ -1,6 +1,6 @@
 import pandas as pd ,joblib ,os
 from sklearn.ensemble import GradientBoostingClassifier , IsolationForest
-from sklearn.model_selection import train_test_split
+from sklearn.model_selection import train_test_split,cross_val_score
 from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import classification_report
 
@@ -22,6 +22,9 @@ X_test=scaler.transform(X_test)
 model=GradientBoostingClassifier(n_estimators=100 ,random_state=42)
 model.fit(X_train,y_train)
 print(classification_report(y_test,model.predict(X_test)))
+
+cv = cross_val_score(model, X_train, y_train, cv=5)
+print(f"Cross-Validation: {cv.mean():.2f} ± {cv.std():.2f}")
 
 risk_model = IsolationForest(contamination=0.1, random_state=42)
 risk_model.fit(X_train)
