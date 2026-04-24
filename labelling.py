@@ -2,6 +2,9 @@ import pandas as pd
 
 df = pd.read_csv("data/github_data.csv")
 
+# Assign weighted score to each developer based on behavioral metrics
+# Thresholds: junior < 50, mid < 72, senior >= 72
+
 # Calculate score
 def score(row):
     s = 0
