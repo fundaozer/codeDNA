@@ -4,7 +4,7 @@ import requests
 
 load_dotenv()
 TOKEN = os.getenv("GITHUB_TOKEN")
-HEADERS = {"Authorization": f"token {os.getenv('GITHUB_TOKEN')}"}
+HEADERS = {"Authorization": f"token {TOKEN}"}
 
 # Fetch 200 popular repositories (2 pages x 100)
 def get_repos():
@@ -153,20 +153,3 @@ for repo in get_repos():
 os.makedirs("data", exist_ok=True)
 pd.DataFrame(all_features).to_csv("data/github_data.csv", index=False)
 print(f"Finish! {len(all_features)} people ")
-
-        
-        
-               
-
-           
-
-
-
-
-
-
-
-
-
-
-
