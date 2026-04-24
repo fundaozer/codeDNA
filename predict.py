@@ -63,6 +63,7 @@ def get_features(username, owner, repo):
         "account_age_days":       age,
     }
 
+# Parse owner and repo from URL, extract features, run model prediction
 def predict(repo_url):
     parts        = repo_url.rstrip("/").split("/")
     owner, repo  = parts[-2], parts[-1]
