@@ -200,7 +200,7 @@ if btn and url:
 
     st.markdown("<br>", unsafe_allow_html=True)
 
-    # ── Raw Metrics ──
+    # ── Raw metrics ──
     st.markdown('<div class="section-label">// Raw Metrics</div>', unsafe_allow_html=True)
     df = pd.DataFrame([feat]).T.reset_index()
     df.columns = ["Metric", "Value"]
